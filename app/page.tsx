@@ -4,9 +4,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div>
-      <Link href="/create">Create</Link>
+      <Link href="/Pages/create">Create</Link>
       <br/>
-      <Link href="/join">Join</Link>
+      <Link href="/Pages/join">Join</Link>
     </div>
   )
 }

@@ -14,10 +14,9 @@ model Room {
   roomId    String   @id @default(auto()) @map("_id") @db.ObjectId
   roomCode  Int      @unique
   createdAt DateTime @default(now())
-  mcqs      Mcqs[]
 }
 
-model Mcqs {
+model Questions {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   question      String
   optionA       String
@@ -25,6 +24,5 @@ model Mcqs {
   optionC       String
   optionD       String
   correctOption String
-  Room          Room   @relation(fields: [roomRoomId], references: [roomId], onDelete: Cascade)
-  roomRoomId    String @db.ObjectId
+ 
 }
