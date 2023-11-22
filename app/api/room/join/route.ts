@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getRooms } from "../../db/room";
+import { getRooms } from "../../../../Utils/db/room";
 
 
 export async function GET(request: Request) {

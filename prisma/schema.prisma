@@ -16,6 +16,7 @@ model Room {
   createdAt DateTime @default(now())
 }
 
+
 model Questions {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   question      String
@@ -24,5 +25,4 @@ model Questions {
   optionC       String
   optionD       String
   correctOption String
- 
 }

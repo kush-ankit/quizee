@@ -1,9 +1,5 @@
-import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { createRoom } from "../../db/room";
-
-const prisma = new PrismaClient();
-
+import { createRoom } from "../../../../Utils/db/room";
 
 export const GET = async () => {
     try {
