@@ -9,4 +9,12 @@ export const createRoom = async () => {
     return await prisma.room.create({
         data: { roomCode: Random, }
     });
-}
+};
+
+export const findRoomByNumber = (room: number) => {
+    return prisma.room.findFirst({
+        where: {
+            roomCode: room
+        }
+    });
+};

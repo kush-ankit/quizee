@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
-import { getRooms } from "../../../../Utils/db/room";
+import { findRoomByNumber, getRooms } from "../../../../Utils/db/room";
 
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
     try {
-        let rooms = await getRooms();
-        return NextResponse.json(rooms);
+        let roomNumber = await request.json()
+        let room = await findRoomByNumber(roomNumber.roomCode);
+        return NextResponse.json(room);
     } catch (error) {
         console.error(error);
     };
