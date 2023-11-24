@@ -1,28 +1,24 @@
 "use client"
 
+import { useRoomCode } from "@/app/Global/RoomState";
 import { useEffect, useState } from "react"
 
 export default function Createroom() {
-    const [data, setData] = useState(null);
+
+    const [RoomCode, addRoomCode]: any = useRoomCode((state: any) => [state.RoomCode, state.addRoomCode]);
+
     useEffect(() => {
-        fetch('http://192.168.1.186:3000/api/room/join', {
-            method: 'POST',
-            headers: {
-                Accept: 'application.json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ roomCode: 84194 }),
-            cache: 'no-cache',
-        })
+        fetch('http://192.168.1.186:3000/api/room/create')
             .then(response => response.json())
-            .then(json => setData(json))
+            .then(json => addRoomCode(json.roomCode))
             .catch(error => console.error(error));
+
     }, []);
 
     return (
         <div>
             {
-                data ? JSON.stringify(data) : <div>loading...</div>
+                RoomCode !== 0 ? RoomCode : <div>loading...</div>
             }
         </div>
     )

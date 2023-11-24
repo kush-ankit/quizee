@@ -1,0 +1,15 @@
+import { create } from "zustand";
+
+type Store = {
+    RoomId : string
+    RoomCode: number
+    addRoomCode: (code: number) => void
+}
+
+export const useRoomCode = create<Store>((set) => ({
+    RoomId: "",
+    RoomCode: 0,
+    addRoomCode: (code) => {
+        set({ RoomCode: code })
+    },
+}));
