@@ -15,7 +15,7 @@ export default function Joinroom() {
 
 
     async function handleclick() {
-        await fetch('http://192.168.1.186:3000/api/room/join', {
+        await fetch("http://localhost:3000/api/room/join", {
             method: 'POST',
             headers: {
                 Accept: 'application.json',
