@@ -7,7 +7,7 @@ export default function Quizpage() {
 
   return (
     <div>
-      {Question[0].id !== undefined ? JSON.stringify(Question[0].id) : "loading"}
+      {Question}
     </div>
   )
 }

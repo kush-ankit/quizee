@@ -13,7 +13,7 @@ export default function Joinroom() {
 
 
     const [roomCode, addRoomCode, addRoomId]: any = useRoomCode((state: any) => [state.roomCode, state.addRoomCode, state.addRoomId]);
-    const [Question, addQuestion]: any = useQuestionState((state: any) => [state.Question, state.addQuestion]);
+    const [ addQuestion]: any = useQuestionState((state: any) => [ state.addQuestion]);
 
 
     async function fetchQuestions(roomId: string) {
