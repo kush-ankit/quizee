@@ -1,6 +1,4 @@
 "use client"
-
-
 import { create } from "zustand";
 
 type Store = {
@@ -12,7 +10,7 @@ type Store = {
 }
 
 export const useRoomCode = create<Store>((set) => ({
-    RoomId: "655e0168513a7689362559d8",
+    RoomId: "",
     RoomCode: 0,
     addRoomCode: (code) => {
         set({ RoomCode: code })

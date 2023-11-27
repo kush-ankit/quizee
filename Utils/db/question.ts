@@ -17,10 +17,10 @@ export const addQuestions = async (RoomId: string, question: string, optionA: st
     })
 }
 
-export const findQuestionById = async (id: string) =>{
+export const findQuestionById = async (id: string) => {
     return await prisma.questions.findMany({
         where: {
-            roomRoomId : id,
+            roomRoomId: id,
         }
     });
 };
