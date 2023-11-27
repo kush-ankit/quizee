@@ -30,7 +30,7 @@ export default function Joinroom() {
                 abc = json.roomCode;
             })
             .catch(error => console.error(error));
-        if (abc !== 0) { router.push('/Pages/quiz') }
+        if (abc !== 0) { router.push('/Pages/question/show') }
     }
 
     return (
