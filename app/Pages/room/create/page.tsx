@@ -1,25 +1,23 @@
 "use client"
 
 import { useRoomCode } from "@/app/Global/RoomState";
-import { useEffect, useState } from "react"
+import { Button } from "@nextui-org/react";
+import { redirect } from "next/navigation";
 
 export default function Createroom() {
-
     const [RoomCode, addRoomCode]: any = useRoomCode((state: any) => [state.RoomCode, state.addRoomCode]);
 
-    useEffect(() => {
-        fetch('http://192.168.1.186:3000/api/room/create')
+    async function handleclick() {
+        await fetch('http://localhost:3000/api/room/create')
             .then(response => response.json())
-            .then(json => addRoomCode(json.roomCode))
+            .then(json => {
+                addRoomCode(json.roomCode);
+                console.log(json.roomCode);
+                if (json.roomCode) redirect('/Pages/question/add')
+            })
             .catch(error => console.error(error));
-
-    }, []);
-
+    }
     return (
-        <div>
-            {
-                RoomCode !== 0 ? RoomCode : <div>loading...</div>
-            }
-        </div>
+        <Button color="primary" onClick={handleclick} variant="shadow" className="p-6">Create</Button>
     )
 }

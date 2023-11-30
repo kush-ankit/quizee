@@ -29,7 +29,7 @@ export default function Joinroom() {
             .then(response => response.json())
             .then(json => {
                 console.log(json);
-                addQuestion(json.question)
+                addQuestion(json)
             })
             .catch(error => console.error(error));
     }
