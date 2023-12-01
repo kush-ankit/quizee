@@ -1,7 +1,7 @@
 "use client"
 
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, User, AvatarIcon } from "@nextui-org/react";
-import { useRoomCode } from "@/app/Global/RoomState";
+import { useRoomCode } from "@/Global/RoomState";
 
 
 export default function Navigbar() {

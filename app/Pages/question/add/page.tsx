@@ -1,7 +1,7 @@
 "use client";
 
 import { addQuestions } from "@/Utils/db/question";
-import { useRoomCode } from "@/app/Global/RoomState";
+import { useRoomCode } from "@/Global/RoomState";
 import { Input } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 import { useState } from 'react'

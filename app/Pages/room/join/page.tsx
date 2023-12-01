@@ -1,10 +1,10 @@
 "use client"
 
-import { useRoomCode } from "@/app/Global/RoomState";
+import { useRoomCode } from "@/Global/RoomState";
 import { useState } from "react";
 import { Button } from "@nextui-org/react";
 import { useRouter } from 'next/navigation'
-import { useQuestionState } from "@/app/Global/QuestionState";
+import { useQuestionState } from "@/Global/QuestionState";
 
 export default function Joinroom() {
     const [code, setCode] = useState("");

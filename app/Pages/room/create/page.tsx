@@ -1,6 +1,6 @@
 "use client"
 
-import { useRoomCode } from "@/app/Global/RoomState";
+import { useRoomCode } from "@/Global/RoomState";
 import { Button } from "@nextui-org/react";
 import { redirect } from "next/navigation";
 
