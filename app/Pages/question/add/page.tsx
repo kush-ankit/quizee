@@ -12,7 +12,6 @@ export default function AddQuestion() {
     const [optionB, setOptionB] = useState("")
     const [optionC, setOptionC] = useState("")
     const [optionD, setOptionD] = useState("")
-
     const [correctOption, setCorrectOption] = useState("")
 
     const [RoomId]: any = useRoomCode((state: any) => [state.RoomId]);
@@ -22,7 +21,13 @@ export default function AddQuestion() {
     async function handleSubmit(e: any) {
         e.preventDefault();
         try {
-            await addQuestions(RoomId, question, optionA, optionB, optionC, optionD, correctOption);
+            await fetch("http://192.168.1.186:3000/api/questions/add", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ RoomId, question, optionA, optionB, optionC, optionD, correctOption }),
+            })
             setQuestion("")
             setOptionA("")
             setOptionB("")

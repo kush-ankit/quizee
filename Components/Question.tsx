@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { RadioGroup, Radio, Button } from "@nextui-org/react";
-import { useQuestionState } from "@/Global/QuestionState";
 
 export default function QuestionPage(props: any) {
     const [selected, setSelected] = useState("");
