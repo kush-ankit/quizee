@@ -17,7 +17,7 @@ export default function Joinroom() {
 
 
     async function fetchQuestions(roomId: string) {
-        await fetch("http://localhost:3000/api/questions/fetch", {
+        await fetch("http://192.168.1.186:3000/api/questions/fetch", {
             method: 'POST',
             headers: {
                 Accept: 'application.json',
@@ -35,7 +35,7 @@ export default function Joinroom() {
     }
 
     async function handleclick() {
-        await fetch("http://localhost:3000/api/room/join", {
+        await fetch("http://192.168.1.186:3000/api/room/join", {
             method: 'POST',
             headers: {
                 Accept: 'application.json',

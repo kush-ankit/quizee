@@ -1,25 +1,29 @@
 "use client"
 
-import React from "react";
-import { RadioGroup, Radio } from "@nextui-org/react";
+import React, { useState } from "react";
+import { RadioGroup, Radio, Button } from "@nextui-org/react";
+import { useQuestionState } from "@/Global/QuestionState";
 
-export default function QuestionPage({ques} : any) {
+export default function QuestionPage(props: any) {
+    const [selected, setSelected] = useState("");
 
-    const [selected, setSelected] = React.useState(ques.optionA);
-    return (
-        // <div className="flex flex-col gap-3">
-        //     <RadioGroup
-        //         label={ques.question}
-        //         value={selected}
-        //         onValueChange={setSelected}
-        //     >
-        //         <Radio value={ques.optionA}>{ques.optionA}</Radio>
-        //         <Radio value={ques.optionB}>{ques.optionB}</Radio>
-        //         <Radio value={ques.optionC}>{ques.optionC}</Radio>
-        //         <Radio value={ques.optionD}>{ques.optionD}</Radio>
-        //     </RadioGroup>
-        //     <p className="text-default-500 text-small">Selected: {selected}</p>
-        // </div>
-        <div>{ }</div>
-    );
+    if (props.Question && true) {
+        return (
+            <div className="flex flex-col gap-3">
+                <RadioGroup
+                    label={props.Question.question}
+                    value={selected}
+                    onValueChange={setSelected}
+                >
+                    <Radio value={props.Question.optionA}>{props.Question.optionA}</Radio>
+                    <Radio value={props.Question.optionB}>{props.Question.optionB}</Radio>
+                    <Radio value={props.Question.optionC}>{props.Question.optionC}</Radio>
+                    <Radio value={props.Question.optionD}>{props.Question.optionD}</Radio>
+                </RadioGroup>
+                <p className="text-default-500 text-small">Selected: {selected}</p>
+            </div>
+        );
+    } else {
+        return <div>Loding...</div>
+    }
 }
