@@ -1,10 +1,10 @@
 "use client";
 
-import { addQuestions } from "@/Utils/db/question";
 import { useRoomCode } from "@/Global/RoomState";
 import { Input } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 import { useState } from 'react'
+import { addQuestionAPI } from "@/app/functions";
 
 export default function AddQuestion() {
     const [question, setQuestion] = useState("")
@@ -21,13 +21,7 @@ export default function AddQuestion() {
     async function handleSubmit(e: any) {
         e.preventDefault();
         try {
-            await fetch("http://192.168.1.186:3000/api/questions/add", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ RoomId, question, optionA, optionB, optionC, optionD, correctOption }),
-            })
+            await addQuestionAPI(RoomId, question, optionA, optionB, optionC, optionD, correctOption)
             setQuestion("")
             setOptionA("")
             setOptionB("")
