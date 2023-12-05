@@ -1,48 +1,17 @@
 "use client"
 
-import { useRoomCode } from "@/Global/RoomState";
-import { useState } from "react";
-import { Button } from "@nextui-org/react";
-import { useRouter } from 'next/navigation'
-import { useQuestionState } from "@/Global/QuestionState";
-import { fetchQuestionsAPI, joinRoomApi } from "@/app/functions";
+// import { useRoomCode } from "@/Global/RoomState";
+// import { useRouter } from 'next/navigation'
+import JoinRoomInput from "@/Components/room/roomCodeInput";
 
 export default function Joinroom() {
-    const [code, setCode] = useState("");
-    const router = useRouter()
-    const [roomCode, addRoomCode, addRoomId]: any = useRoomCode((state: any) => [state.roomCode, state.addRoomCode, state.addRoomId]);
-    const [addQuestion]: any = useQuestionState((state: any) => [state.addQuestion]);
-
-
-    async function fetchQuestionList(roomId: string) {
-        try {
-            let questions = await fetchQuestionsAPI(roomId);
-            addQuestion(questions)
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-    async function handleclick(code: string) {
-        await joinRoomApi(code)
-            .then(json => {
-                addRoomCode(json.roomCode);
-                addRoomId(json.roomId);
-                console.log(json.roomId);
-                fetchQuestionList(json.roomId);
-            })
-            .catch(error => console.error(error));
-
-        if (roomCode !== 0) { router.push('/Pages/question/show') }
-    }
+    // const router = useRouter()
+    // const [roomCode]: any = useRoomCode((state: any) => [state.roomCode]);
+   
 
     return (
         <div className="md:p-8 h-[80vh] w-full flex flex-col justify-center items-center">
-            <form className="flex gap-4 flex-col outline outline-1 p-4" onClick={(ev) => (ev.preventDefault())} >
-                <label className="text-3xl font-bold">Room Code</label>
-                <input className="outline outline-1 w-fit h-fit p-2 rounded-lg" name="roomCode" type="number" placeholder='Room Code' onChange={(ev) => setCode(ev.target.value)} />
-                <Button color="primary" className="button-confirm" onClick={() => handleclick(code)}>Join</Button>
-            </form>
-        </div>
+            <JoinRoomInput />
+        </div >
     )
 }

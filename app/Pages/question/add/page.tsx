@@ -21,7 +21,7 @@ export default function AddQuestion() {
     async function handleSubmit(e: any) {
         e.preventDefault();
         try {
-            await addQuestionAPI(RoomId, question, optionA, optionB, optionC, optionD, correctOption)
+            await addQuestionAPI(RoomId, question, optionA, optionB, optionC, optionD, correctOption).then(response => response.json())
             setQuestion("")
             setOptionA("")
             setOptionB("")
