@@ -7,7 +7,7 @@ export default function Createroom() {
     return (
         <div className="w-full h-[80vh] flex justify-center items-center gap-8">
             <CreateButton />
-            <Button as={Link} color="primary" href="/Pages/room/join" variant="shadow" className="p-6">My Room</Button>
+            <Button as={Link} color="primary" href="/Pages/room/myroom" variant="shadow" className="p-6">My Room</Button>
         </div>
     )
 }

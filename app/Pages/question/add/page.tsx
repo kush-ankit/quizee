@@ -3,8 +3,9 @@
 import { useRoomCode } from "@/Global/RoomState";
 import { Input } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { addQuestionAPI } from "@/app/functions";
+import { redirect } from "next/navigation";
 
 export default function AddQuestion() {
     const [question, setQuestion] = useState("")
@@ -14,11 +15,19 @@ export default function AddQuestion() {
     const [optionD, setOptionD] = useState("")
     const [correctOption, setCorrectOption] = useState("")
 
-    const [RoomId]: any = useRoomCode((state: any) => [state.RoomId]);
+    const [RoomId, RoomCode]: any = useRoomCode((state: any) => [state.RoomId, state.RoomCode]);
+
+    useEffect(() => {
+        if (RoomCode === 0) { redirect('/Pages/room/create') }
+    }, [RoomCode])
+
 
 
 
     async function handleSubmit(e: any) {
+
+
+
         e.preventDefault();
         try {
             await addQuestionAPI(RoomId, question, optionA, optionB, optionC, optionD, correctOption).then(response => response.json())

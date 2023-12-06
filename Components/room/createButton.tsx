@@ -5,7 +5,7 @@ import { createRoomAPI, fetchQuestionsAPI } from "@/app/functions";
 import { useRouter } from "next/navigation";
 
 export default function CreateButton() {
-    const [addRoomId, addRoomCode]: any = useRoomCode((state: any) => [state.RoomCode, state.addRoomId, state.addRoomCode]);
+    const [addRoomId, addRoomCode]: any = useRoomCode((state: any) => [state.addRoomId, state.addRoomCode]);
     const [addQuestion]: any = useQuestionState((state: any) => [state.addQuestion]);
     const router = useRouter();
 

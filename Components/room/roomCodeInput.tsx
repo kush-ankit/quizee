@@ -4,7 +4,7 @@ import { useRoomCode } from "@/Global/RoomState";
 import { useState } from "react";
 import { Button } from "@nextui-org/react";
 import { useQuestionState } from "@/Global/QuestionState";
-import { fetchQuestionsAPI, joinRoomApi } from "@/app/functions";
+import { fetchQuestionsAPI, joinRoomAPI } from "@/app/functions";
 
 export default function JoinRoomInput() {
     const [code, setCode] = useState("");
@@ -22,7 +22,7 @@ export default function JoinRoomInput() {
     }
 
     async function handleclick(code: string) {
-        await joinRoomApi(code)
+        await joinRoomAPI(code)
             .then(response => response.json())
             .then(json => {
                 addRoomCode(json.roomCode);

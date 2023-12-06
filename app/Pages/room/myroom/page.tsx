@@ -33,7 +33,7 @@ export default function Joinroom() {
                 addRoomId(json.roomId);
                 console.log(json.roomId);
                 fetchQuestionList(json.roomId);
-            }).then(()=> router.push("/Pages/question/show"))
+            }).then(()=> router.push("/Pages/question/list"))
             .catch(error => console.error(error));
     }
 

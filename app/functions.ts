@@ -10,7 +10,7 @@ export async function fetchQuestionsAPI(roomId: string) {
     })
 }
 
-export async function joinRoomApi(code: string) {
+export async function joinRoomAPI(code: string) {
     return await fetch("http://192.168.1.186:3000/api/room/join", {
         method: 'POST',
         headers: {
