@@ -1,10 +1,19 @@
 "use client"
 import { useQuestionState } from '@/Global/QuestionState';
+import { useRoomCode } from '@/Global/RoomState';
 import { Button } from '@nextui-org/react';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function QuestionList() {
     const [Question]: any = useQuestionState((state: any) => [state.Question]);
+    const [RoomCode]: any = useRoomCode((state: any) => [state.RoomCode]);
+
+    useEffect(() => {
+        if (RoomCode === 0) { redirect('/') }
+      }, [RoomCode])
+
 
     return (
         <div>

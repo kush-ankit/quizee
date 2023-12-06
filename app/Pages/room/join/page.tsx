@@ -31,7 +31,6 @@ export default function Joinroom() {
             .then(json => {
                 addRoomCode(json.roomCode);
                 addRoomId(json.roomId);
-                console.log(json.roomId);
                 fetchQuestionList(json.roomId);
             }).then(()=> router.push("/Pages/question/show"))
             .catch(error => console.error(error));
