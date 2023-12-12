@@ -18,7 +18,15 @@ export default function Joinroom() {
 
     async function fetchQuestionList(roomId: string) {
         try {
-            let questions = await fetchQuestionsAPI(roomId).then(response => response.json())
+            let questions = await fetch("http://192.168.1.186:3000/api/questions/fetch", {
+                method: 'POST',
+                headers: {
+                    Accept: 'application.json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ roomId: roomId }),
+                cache: 'no-cache',
+            }).then(response => response.json())
             addQuestion(questions)
         } catch (error) {
             console.error(error);
@@ -32,7 +40,7 @@ export default function Joinroom() {
                 addRoomCode(json.roomCode);
                 addRoomId(json.roomId);
                 fetchQuestionList(json.roomId);
-            }).then(()=> router.push("/Pages/question/show"))
+            }).then(() => router.push("/Pages/question/show"))
             .catch(error => console.error(error));
     }
 
