@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  padding: 1rem;
-}
-
 /* Normal Usage */
 .spinner:before {
   transform: rotateX(60deg) rotateY(45deg) rotateZ(45deg);
